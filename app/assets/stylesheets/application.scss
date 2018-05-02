@@ -1,0 +1,20 @@
+@import "materialize/components/color";
+$primary-color: color("blue", "darken-2") !default;
+$secondary-color: color("grey", "darken-1") !default;
+@import "materialize";
+@import "./custom.scss";
+@import "material_icons";
+@import "input.scss";
+@import "sweetalert2";
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	//background-color: #616161;
+	background-color: #424242;
+}
+
+main {
+	flex: 1 0 auto;
+}

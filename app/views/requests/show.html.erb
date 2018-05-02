@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Songurl:</strong>
+  <%= @request.songurl %>
+</p>
+
+<p>
+  <strong>Twitchname:</strong>
+  <%= @request.twitchname %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

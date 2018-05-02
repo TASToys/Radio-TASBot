@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <title>PlexLink | JamesMediaServer</title>
+	  <%= csrf_meta_tags %>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	  <header><%= render 'layouts/header.html.erb' %></header>
+	  <% flash.each do |message_type, message| %>
+		  <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
+	  <% end %>
+  
+	  <main>
+	<%= yield %>
+	<div class="fixed-action-btn horizontal">
+		<% if user_signed_in? == true %>
+			<a class="btn-floating btn-large red darken-1">
+				<i class="large material-icons">lock_outline</i>
+			</a>
+			<ul>
+				<li><%= link_to "Sign out", destroy_user_session_path, { :method=>:delete, :class=>"btn waves-effect waves-red" } %></li> 
+			</ul>
+
+		<% else %>
+			<a class="btn-floating btn-large green darken-2">
+				<i class="large material-icons">lock_open</i>
+			</a>
+			<ul>
+				<li><%= link_to "Sign in", new_user_session_path, { :class=>"btn waves-effect waves-red" } %></li> 
+			</ul>
+		<% end %>
+		
+	</div>
+  	</main>
+	<footer class="page-footer"><%= render 'layouts/footer.html.erb' %></footer>
+  </body>
+</html>
