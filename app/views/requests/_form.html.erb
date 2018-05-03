@@ -1,14 +1,17 @@
 
-<%= simple_form_for(@request) do |f| %>
+<%= simple_form_for(@requests) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :songurl %>
-    <%= f.input :twitchname %>
+  <div class="input-field col s6 form-inputs">
+	  <%= f.input :songurl, placeholder:"Song link", label:false, input_html: {value: "https://"} %>
   </div>
 
-  <div class="form-actions">
+  <div class="input-field col s6 form-inputs">
+	  <%= f.input :twitchname, placeholder:"Twitch name", label:false, required:true, :validate => true %>
+  </div>
+
+  <div class="col s12 form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>

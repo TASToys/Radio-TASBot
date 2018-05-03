@@ -17,6 +17,8 @@ gem 'highline'
 gem 'therubyracer', platforms: :ruby
 gem 'browser', require: "browser/browser"
 gem 'yt'
+gem 'judge'
+gem 'judge-simple_form'
 
 #jquery stuffs
 gem 'will_paginate'

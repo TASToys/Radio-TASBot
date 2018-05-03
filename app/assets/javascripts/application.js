@@ -16,6 +16,9 @@
 //= require materialize
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require underscore
+//= require json2
+//= require judge
 //= require_self
 //= require_tree .
 

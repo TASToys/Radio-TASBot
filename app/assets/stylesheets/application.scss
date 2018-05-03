@@ -2,7 +2,7 @@
 $primary-color: color("blue", "darken-2") !default;
 $secondary-color: color("grey", "darken-1") !default;
 @import "materialize";
-@import "./custom.scss";
+@import "custom.scss";
 @import "material_icons";
 @import "input.scss";
 @import "sweetalert2";
@@ -17,4 +17,18 @@ body {
 
 main {
 	flex: 1 0 auto;
+}
+
+table.highlight{
+	tbody{
+		tr:nth-child(odd){
+			background-color: #505050;
+
+		}
+		tr:hover{
+			background-color: #606060;
+		}
+
+
+	}
 }

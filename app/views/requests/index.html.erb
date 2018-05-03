@@ -1,31 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="container text">
+	<div class="row">
+		<div class="col s8">
+			<p>Welcome to the request page for Radio Free TASBot please make a request below. some things for requests though before we get started:
+			<ul class="browser-default" style="list-style-type:square">
+				<li>No requests over ten minutes in duration.</li>
+				<li>Not all requests will be played in tonights stream. Those that are not played will be played <b>before</b> any new ones in the next stream.</li>
+				<li>Keep the music clean weird is fine but vulgar is not.</li>
+				<li>The DJ and the Streamer reserve the right to veto any song.</li>
+			</ul>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<%= render 'form', request: @requests %>
+		</div>
+	</div>
 
-<h1>Requests</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Songurl</th>
-      <th>Twitchname</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @requests.each do |request| %>
-      <tr>
-        <td><%= request.songurl %></td>
-        <td><%= request.twitchname %></td>
-	<% if user_signed_in? == true %>	
-		<td><%= link_to 'Show', request %></td>
-		<td><%= link_to 'Edit', edit_request_path(request) %></td>
-		<td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	<% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Request', new_request_path %>
+</div>

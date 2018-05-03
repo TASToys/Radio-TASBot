@@ -104,6 +104,11 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    judge (3.0.0)
+      rails (>= 5.0)
+    judge-simple_form (1.1.0)
+      judge (>= 2.0)
+      simple_form (>= 3.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -292,6 +297,8 @@ DEPENDENCIES
   highline
   jbuilder
   jquery-rails
+  judge
+  judge-simple_form
   launchy
   listen
   material_icons

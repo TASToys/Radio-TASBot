@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Judge::Engine => '/judge'
   resources :requests
   root 'requests#index'
   get '/queue', to: 'queue#queue'

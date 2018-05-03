@@ -1,4 +1,5 @@
 class QueueController < ApplicationController
-  def queue
-  end
+	def queue
+		@requests = Request.all
+	end
 end
