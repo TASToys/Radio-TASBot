@@ -1,2 +1,16 @@
-<h1>Static#whatis</h1>
-<p>Find me in app/views/static/whatis.html.erb</p>
+<% provide(:title, "What is?") %>
+<div class="container text">
+	<div class="row">
+		<div class="col s4"></div>
+		<div class="col s8">
+			<h3>What is Radio TASBot?</h3>
+		</div>
+		<br>
+		<div class="col s2"></div>
+		<div class="col s8">
+			<p>Radio TASBot is an IceCast2 radio station that plays music during DwangoAC's stream. You can tune in live at <%= link_to "DwangoAC's twitch page", "http://twitch.tv/dwangoac" %> or listen to the other streams at the <%= link_to "IceCast Server page", "http://fallenfocus.net:9988" %>. Radio TASbot is made possible by a large collection of hardware to include a SNES you can read more about that project at <%= link_to "jukesnes.com", "#" %>.</p>
+			
+
+		</div>
+	</div>
+</div>

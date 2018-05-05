@@ -1,7 +1,8 @@
 class StaticController < ApplicationController
-  def whatis
-  end
+	def whatis
+	end
 
-  def help
-  end
+	def help
+	end
+
 end

@@ -19,6 +19,9 @@ gem 'browser', require: "browser/browser"
 gem 'yt'
 gem 'judge'
 gem 'judge-simple_form'
+gem 'video_info'
+gem 'configatron'
+
 
 #jquery stuffs
 gem 'will_paginate'
@@ -27,6 +30,11 @@ gem 'simple_form'
 ##admin stuff
 gem 'devise'
 gem 'rails_admin'
+
+#twitch stuffs
+gem 'oj'
+gem 'rest-client'
+
 
 ##sweetalerts
 

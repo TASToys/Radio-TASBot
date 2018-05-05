@@ -1,3 +1,5 @@
+<% provide(:title, "Queue") %>
+<% VideoInfo.provider_api_keys = { youtube: configatron.yt.api } %>
 <div class="container text">
 	<table class="striped highlight centered">
 		<thead>
@@ -9,8 +11,10 @@
 		</thead>	
 		<tbody>
 			<% @requests.each do |request| %>
+			<% video = VideoInfo.new("#{request.songurl}") %>
+			<% vtitle = video.title %>
 				<tr>
-					<td><%= link_to request.songurl, "#{request.songurl}" %></td>
+					<td><%= link_to vtitle, "#{request.songurl}" %></td>
 					<td><%= request.twitchname %></td>
 					<% if user_signed_in? == true %>
 						<td><%= request.created_at %></td>

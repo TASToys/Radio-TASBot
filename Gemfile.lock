@@ -47,6 +47,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (9.0.0)
+    ast (2.4.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     browser (2.5.3)
@@ -61,6 +62,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    configatron (4.5.1)
     crass (1.0.4)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -68,6 +70,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -93,8 +97,11 @@ GEM
       temple (>= 0.8.0)
       tilt
     highline (1.7.10)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    iso8601 (0.9.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -142,6 +149,9 @@ GEM
     materialize-sass (0.100.2)
       sass (~> 3.3)
     method_source (0.9.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -154,12 +164,18 @@ GEM
     multi_json (1.13.1)
     nenv (0.3.0)
     nested_form (0.3.2)
+    net_http_timeout_errors (0.3.0)
+    netrc (0.11.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oga (2.15)
+      ast
+      ruby-ll (~> 2.1)
+    oj (3.5.0)
     orm_adapter (0.5.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -223,6 +239,13 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     sass (3.5.6)
@@ -268,6 +291,13 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+    video_info (2.7)
+      iso8601 (~> 0.9.1)
+      net_http_timeout_errors (~> 0.3.0)
+      oga (~> 2.7)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.6.2)
@@ -291,6 +321,7 @@ DEPENDENCIES
   browser
   byebug
   coffee-rails
+  configatron
   devise
   guard
   guard-minitest
@@ -305,11 +336,13 @@ DEPENDENCIES
   materialize-form
   materialize-sass
   minitest-reporters
+  oj
   puma
   rails
   rails-assets-sweetalert2!
   rails-controller-testing
   rails_admin
+  rest-client
   sass-rails
   simple_form
   spring
@@ -320,6 +353,7 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier
+  video_info
   web-console
   will_paginate
   yt
