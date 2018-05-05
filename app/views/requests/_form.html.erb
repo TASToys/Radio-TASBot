@@ -12,6 +12,10 @@
   </div>
 
   <div class="col s12 form-actions">
-	  <%= f.button :submit %>
+	  <% if @stream == "offline" %>
+		  <%= f.button :submit, class: "btn disabled" %>
+	  <% else %>
+		  <%= f.button :submit, class: "btn waves-effect waves-green" %>
+	  <% end %>
   </div>
 <% end %>

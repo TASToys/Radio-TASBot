@@ -21,7 +21,12 @@ gem 'judge'
 gem 'judge-simple_form'
 gem 'video_info'
 gem 'configatron'
+gem 'twitch-api'
 
+#bot stuff
+
+gem 'cinch'
+gem 'cinch-commands'
 
 #jquery stuffs
 gem 'will_paginate'

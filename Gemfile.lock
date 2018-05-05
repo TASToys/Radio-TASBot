@@ -53,6 +53,7 @@ GEM
     browser (2.5.3)
     builder (3.2.3)
     byebug (10.0.2)
+    cinch (2.3.4)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -74,6 +75,10 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.15.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
@@ -162,6 +167,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     nested_form (0.3.2)
     net_http_timeout_errors (0.3.0)
@@ -287,6 +293,9 @@ GEM
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
+    twitch-api (0.2.0)
+      faraday (~> 0.13)
+      faraday_middleware (~> 0.12)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.10)
@@ -320,6 +329,7 @@ PLATFORMS
 DEPENDENCIES
   browser
   byebug
+  cinch
   coffee-rails
   configatron
   devise
@@ -351,6 +361,7 @@ DEPENDENCIES
   sweet-alert2-rails
   therubyracer
   turbolinks
+  twitch-api
   tzinfo-data
   uglifier
   video_info
