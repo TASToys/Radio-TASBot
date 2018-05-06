@@ -19,7 +19,7 @@
 
 /node_modules
 /yarn-error.log
-/config/configatron
+/config/configatron/default.rb
 
 .byebug_history
 *.swp
