@@ -54,6 +54,8 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cinch (2.3.4)
+    cinch-commands (0.1.0)
+      cinch (~> 2.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -330,6 +332,7 @@ DEPENDENCIES
   browser
   byebug
   cinch
+  cinch-commands
   coffee-rails
   configatron
   devise
