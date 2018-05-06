@@ -22,6 +22,8 @@ gem 'judge-simple_form'
 gem 'video_info'
 gem 'configatron'
 gem 'twitch-api'
+gem 'passenger'
+
 
 #bot stuff
 

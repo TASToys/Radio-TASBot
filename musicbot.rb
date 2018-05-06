@@ -13,7 +13,10 @@ class Request
 	include Cinch::Commands
 
 	command :request, {arg1: :string},
-		summery: "Request music with a youtube url."
+		summary: "Request music with a youtube url.",
+		description: %{
+		use !request with a youtube url
+		}
 	
 	def request(m,arg1)
 
@@ -26,6 +29,16 @@ class Request
 		m.reply "#{m.user.nick}, your video \"#{video.title}\" has been added to the queue."
 		@db.execute("INSERT INTO requests (songurl, twitchname, created_at, updated_at) VALUES (?,?,?,?)", [linkvid, linkuser, linktime, linkupdt])
 		@db.close
+	end
+end
+
+class View
+	include Cinch::Plugin
+
+	match "queue"
+
+	def execute(m)
+		m.reply "To View the queue go to http://radiotasbot.com:10001/queue"
 	end
 end
 
