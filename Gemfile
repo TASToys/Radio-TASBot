@@ -23,7 +23,8 @@ gem 'video_info'
 gem 'configatron'
 gem 'twitch-api'
 gem 'passenger'
-
+gem 'acts_as_archival'
+gem 'pg'
 
 #bot stuff
 
@@ -50,7 +51,6 @@ gem 'sweet-alert2-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
 end
 
 group :development do

@@ -9,7 +9,7 @@ class View
 	match "queue"
 
 	def execute(m)
-		m.reply "To View the queue go to http://radiotasbot.com:10001/queue"
+		m.reply "To View the queue go to http://radiotasbot.com/queue"
 	end
 end
 
