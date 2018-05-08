@@ -1,6 +1,18 @@
-<h1>Editing Request</h1>
-
-<%= render 'form', request: @request %>
-
-<%= link_to 'Show', @request %> |
-<%= link_to 'Back', requests_path %>
+<div class="text container">
+	<div class="row">
+	<h3>Edit your request:</h3>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<%= render 'form', request: @request %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s2">
+			<%= link_to 'Show', @request %> |
+		</div>
+		<div class="col s2">
+			<%= link_to 'Back', requests_path %>
+		</div>
+	</div>
+</div>

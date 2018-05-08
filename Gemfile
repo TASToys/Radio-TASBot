@@ -26,10 +26,12 @@ gem 'passenger'
 gem 'acts_as_archival'
 gem 'pg'
 
+
 #bot stuff
 
 gem 'cinch'
 gem 'cinch-commands'
+gem 'sequel'
 
 #jquery stuffs
 gem 'will_paginate'

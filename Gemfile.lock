@@ -273,6 +273,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sequel (5.8.0)
     shellany (0.0.1)
     simple_form (4.0.0)
       actionpack (> 4)
@@ -365,6 +366,7 @@ DEPENDENCIES
   rails_admin
   rest-client
   sass-rails
+  sequel
   simple_form
   spring
   spring-watcher-listen

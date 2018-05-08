@@ -2,7 +2,8 @@
 require 'configatron'
 require 'cinch'
 require 'cinch/commands'
-require 'sqlite3'
+require 'sequel'
+require 'pg'
 require 'video_info'
 require_relative 'config/configatron/defaults.rb'
 
@@ -20,15 +21,15 @@ class Request
 	
 	def request(m,arg1)
 
-		@db = SQLite3::Database.open 'db/development.sqlite3'
+		db = Sequel.connect("postgres://#{configatron.sql.user}:#{configatron.sql.pass}@localhost:5432/radio-tasbot-dev")
+		requests = db.from(:requests)
 		video = VideoInfo.new(arg1)
 		linkvid = arg1
 		linkuser = m.user.nick
 		linktime = Time.now.to_s
 		linkupdt = Time.now.to_s
 		m.reply "#{m.user.nick}, your video \"#{video.title}\" has been added to the queue."
-		@db.execute("INSERT INTO requests (songurl, twitchname, created_at, updated_at) VALUES (?,?,?,?)", [linkvid, linkuser, linktime, linkupdt])
-		@db.close
+		requests.insert(songurl: linkvid, twitchname: linkuser, created_at: linktime, updated_at: linkupdt) 
 	end
 end
 

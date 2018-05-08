@@ -19,6 +19,7 @@ class RequestsController < ApplicationController
 
 	# GET /requests/1/edit
 	def edit
+		@request = Request.find(params[:id])
 	end
 
 
@@ -57,7 +58,7 @@ class RequestsController < ApplicationController
 	def destroy
 		@request.destroy
 		respond_to do |format|
-			format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
+			format.html { redirect_to queue_url, notice: 'Request was successfully destroyed.' }
 			format.json { head :no_content }
 		end
 	end
