@@ -1,24 +1,46 @@
-# README
+# Radio-TASBot
+[![Dependency Status](https://beta.gemnasium.com/badges/gitlab.com/MediaMagnet/radio-tasbot.svg)](https://beta.gemnasium.com/projects/gitlab.com/MediaMagnet/radio-tasbot)
+____
+Welcome to Radio TASBot:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.5.1
 
-Things you may want to cover:
+* System dependencies: 
+  - PostgreSQL 
+  - Youtube API key
+  - Twitch ClientID
+  - Twitch Oauth
 
-* Ruby version
+To get a youtube api key follow this [guide](https://developers.google.com/youtube/registering_an_application).
+To get a twitch ClientID follow this [guide](https://dev.twitch.tv/docs/authentication/#registration).
+To get a twitch oauth go to this [page](https://twitchapps.com/tmi/)
 
-* System dependencies
-
-* Configuration
+* Configuration:
+  - run `rails g configatron:install`
+  - `cp config/configatron/example.defaults.rb config/configatron/defaults.rb`
+  - Put your youtube api key and twitch client id and oauth into the defaults file
+  - Specify the channelid needed for twitch for offline mode(still working on that)
+  - Add the irc version of the channel to the config i.e. `#kappa`
+  - Provide your credentials for your SQL database
 
 * Database creation
+  * create a database called radio-tasbot
 
 * Database initialization
-
-* How to run the test suite
+  * `rake db:migrate`
 
 * Services (job queues, cache servers, search engines, etc.)
+  * For the ircbots i recommend using pm2 to keep them running
+  * `npm install pm2 -g`
+  * `pm2 start musicbot.rb`
+  * `pm2 start queuebot.rb`
 
 * Deployment instructions
+  * `bundle install`
+  * `rails s -p 80`
 
-* ...
+* Passenger deployment with Apache
+  * [Passenger set-up instructions](https://www.phusionpassenger.com/library/config/apache/intro.html)
+* Passenger deployment with Ningx
+  * [Passenger set-up instructions](https://www.phusionpassenger.com/library/config/nginx/intro.html)
+				       

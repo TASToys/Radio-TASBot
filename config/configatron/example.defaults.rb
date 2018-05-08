@@ -12,3 +12,5 @@ configatron.twitch.clientid = 'YOUR TWITCH CLIENT ID'
 configatron.twitch.channel = 'TWITCH CHANNELID YOU WANT TO MONITOR'
 configatron.twitch.oauth = 'YOUR TWITCH OAUTH'
 configatron.twitch.chan = 'THE IRC VERSION OF THE CHANNEL'
+configatron.sql.user = "YOUR SQL USER"
+configatron.sql.pass = "YOUR SQL PASS"
