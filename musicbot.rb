@@ -28,8 +28,14 @@ class Request
 		linkuser = m.user.nick
 		linktime = Time.now.to_s
 		linkupdt = Time.now.to_s
-		m.reply "#{m.user.nick}, your video \"#{video.title}\" has been added to the queue."
-		requests.insert(songurl: linkvid, twitchname: linkuser, created_at: linktime, updated_at: linkupdt) 
+		userreqs = requests.where(twitchname: linkuser)
+		counts = userreqs.count 
+		if counts >= 2
+			m.reply "#{linkuser}, You've already requested two songs please wait for one to be played before trying again. View the queue at radiotasbot.com/queue"
+		else
+			m.reply "#{m.user.nick}, your video \"#{video.title}\" - \[#{video.author}\] has been added to the queue."
+			requests.insert(songurl: linkvid, twitchname: linkuser, created_at: linktime, updated_at: linkupdt) 
+		end
 	end
 end
 

@@ -12,9 +12,11 @@
 		<tbody>
 			<% @requests.each do |request| %>
 			<% video = VideoInfo.new("#{request.songurl}") %>
-			<% vtitle = video.title %>
+			<% vname = video.title %>
+			<% vauthor = video.author %>
+			<% vtitle = "#{vname} - \[#{vauthor}\]" %>
 				<tr>
-					<td><%= link_to vtitle, "#{request.songurl}" %></td>
+					<td><%= link_to vtitle, "#{request.songurl}", target: :_blank %></td>
 					<td><%= request.twitchname %></td>
 					<% if user_signed_in? == true %>
 						<td><%= request.created_at %></td>
