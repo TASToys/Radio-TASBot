@@ -12,8 +12,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'launchy'
-gem 'highline'
 gem 'therubyracer', platforms: :ruby
 gem 'browser', require: "browser/browser"
 gem 'yt'
@@ -25,7 +23,7 @@ gem 'twitch-api'
 gem 'passenger'
 gem 'acts_as_archival'
 gem 'pg'
-
+gem 'sortable-table'
 
 #bot stuff
 

@@ -2,6 +2,7 @@
 	<nav>
 		<div class="nav-wrapper">
 			<a href="#!" class="brand-logo center"><i class="material-icons left">play_circle_outline</i> Radio Free TASBot Requests</a>
+			<!--<a href="#!" data-target="mobile-nav" class="sidenav-trigger"><#% mi.icon.menu %></a>-->
 			<ul class="left hide-on-med-and-down">
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "Queue", queue_path %></li>
@@ -14,4 +15,14 @@
 		</div>
 	</nav>
 </div>
+<!--<ul class="sidenav" id="mobile-nav">
+	<li><#%= link_to "Home", root_path %></li>
+	<li><#%= link_to "Queue", queue_path %></li>
+	<li><#%= link_to "Help", help_path %></li>
+	<li><#%= link_to "What is?", whatis_path %></li>
+	<#% if user_signed_in? == true %>
+		<li><#%= link_to "Admin", rails_admin_path %></li>
+	<#% end %>
+</ul>-->
+
 

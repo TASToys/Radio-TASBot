@@ -2,6 +2,8 @@
 $primary-color: color("blue", "darken-2") !default;
 $secondary-color: color("grey", "darken-1") !default;
 @import "materialize";
+@import "materialize/extras/nouislider";
+
 @import "custom.scss";
 @import "material_icons";
 @import "input.scss";

@@ -45,8 +45,6 @@ GEM
       tzinfo (~> 1.1)
     acts_as_archival (1.3.0)
       activerecord (>= 4.1)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
@@ -107,7 +105,6 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
-    highline (1.7.10)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.0.1)
@@ -139,8 +136,6 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -199,7 +194,6 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
     rack-pjax (1.0.0)
@@ -288,6 +282,9 @@ GEM
     simple_form (4.0.0)
       actionpack (> 4)
       activemodel (> 4)
+    sortable-table (0.1.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -359,12 +356,10 @@ DEPENDENCIES
   devise
   guard
   guard-minitest
-  highline
   jbuilder
   jquery-rails
   judge
   judge-simple_form
-  launchy
   listen
   material_icons
   materialize-form
@@ -382,6 +377,7 @@ DEPENDENCIES
   sass-rails
   sequel
   simple_form
+  sortable-table
   spring
   spring-watcher-listen
   sweet-alert2-rails
