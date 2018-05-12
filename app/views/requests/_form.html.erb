@@ -1,3 +1,11 @@
+<% channel = RestClient.get "https://api.twitch.tv/helix/streams?user_id=#{configatron.twitch.channel}", {:'Client-ID' => configatron.twitch.clientid} %>
+<% inchan = Oj.load(channel).fetch('data').first %>
+<% print "#{inchan} \n" %>
+<% if inchan.nil? == true %>
+	<% @stream = "offline" %>
+<% elsif inchan.nil? == false %>
+	<% @stream = "online" %>
+<% end %>
 
 <%= simple_form_for(@requests) do |f| %>
   <%= f.error_notification %>

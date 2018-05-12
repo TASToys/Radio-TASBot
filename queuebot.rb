@@ -17,7 +17,7 @@ bot = Cinch::Bot.new do
 	configure do |c|
 		c.server = "irc.chat.twitch.tv"
 		c.password = configatron.twitch.oauth
-		c.channels = [configatron.twitch.chan]
+		c.channels = [configatron.twitch.irc]
 		c.plugins.plugins = [View]
 	end
 

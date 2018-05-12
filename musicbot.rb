@@ -5,9 +5,12 @@ require 'cinch/commands'
 require 'sequel'
 require 'pg'
 require 'video_info'
+require 'rest-client'
+require 'oj'
 require_relative 'config/configatron/defaults.rb'
 
 VideoInfo.provider_api_keys = { youtube: configatron.yt.api }
+
 
 class Request
 	include Cinch::Plugin
@@ -21,7 +24,7 @@ class Request
 	
 	def request(m,arg1)
 
-		db = Sequel.connect("postgres://#{configatron.sql.user}:#{configatron.sql.pass}@localhost:5432/radio-tasbot-dev")
+		db = Sequel.connect("postgres://#{configatron.sql.user}:#{configatron.sql.pass}@localhost:5432/radio-tasbot")
 		requests = db.from(:requests)
 		video = VideoInfo.new(arg1)
 		linkvid = arg1
@@ -39,21 +42,11 @@ class Request
 	end
 end
 
-class View
-	include Cinch::Plugin
-
-	match "queue"
-
-	def execute(m)
-		m.reply "To View the queue go to http://radiotasbot.com:10001/queue"
-	end
-end
-
 bot = Cinch::Bot.new do
 	configure do |c|
 		c.server = "irc.chat.twitch.tv"
 		c.password = configatron.twitch.oauth
-		c.channels = [configatron.twitch.chan]
+		c.channels = [configatron.twitch.irc]
 		c.plugins.plugins = [Request]
 	end
 
