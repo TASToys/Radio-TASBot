@@ -48,6 +48,8 @@ bot = Cinch::Bot.new do
 		c.password = configatron.twitch.oauth
 		c.channels = [configatron.twitch.irc]
 		c.plugins.plugins = [Request]
+		c.user = configatron.irc.nick
+		c.nick = configatron.irc.nick
 	end
 
 end
