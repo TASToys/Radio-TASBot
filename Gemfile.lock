@@ -57,6 +57,9 @@ GEM
     cinch (2.3.4)
     cinch-commands (0.1.0)
       cinch (~> 2.0)
+    cinch-cooldown (1.2.0)
+      cinch (~> 2)
+      time-lord (~> 1.0, >= 1.0.1)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -282,9 +285,6 @@ GEM
     simple_form (4.0.0)
       actionpack (> 4)
       activemodel (> 4)
-    sortable-table (0.1.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -305,6 +305,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    time-lord (1.0.1)
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
@@ -336,6 +337,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
     will_paginate (3.1.6)
+    youtube_addy (1.0.4)
     yt (0.32.1)
       activesupport
       yt-support (>= 0.1)
@@ -351,6 +353,7 @@ DEPENDENCIES
   byebug
   cinch
   cinch-commands
+  cinch-cooldown
   coffee-rails
   configatron
   devise
@@ -377,7 +380,6 @@ DEPENDENCIES
   sass-rails
   sequel
   simple_form
-  sortable-table
   spring
   spring-watcher-listen
   sweet-alert2-rails
@@ -389,6 +391,7 @@ DEPENDENCIES
   video_info
   web-console
   will_paginate
+  youtube_addy
   yt
 
 RUBY VERSION

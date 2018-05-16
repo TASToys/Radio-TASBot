@@ -1,5 +1,4 @@
 # Radio-TASBot
-[![Dependency Status](https://beta.gemnasium.com/badges/gitlab.com/MediaMagnet/radio-tasbot.svg)](https://beta.gemnasium.com/projects/gitlab.com/MediaMagnet/radio-tasbot)
 ____
 Welcome to Radio TASBot:
 

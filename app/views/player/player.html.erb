@@ -1,0 +1,50 @@
+<% provide(:title, "Player") %>
+<% VideoInfo.provider_api_keys = { youtube: configatron.yt.api } %>
+<div class="container text">
+	<table class="striped highlight centered">
+		<thead>
+			<tr>
+			<!--<th><#%= link_to "ID", :sort => "id" %></th>-->
+				<th><%= sortable "id" %></th>
+				<th>Requested Song</th>
+				<th>Twitch name</th>
+				<% if user_signed_in? == true %>
+					<th><%= sortable "created_at", "Submitted" %></th>
+					<!--<th><#%= link_to "Subbmited", :sort => "created_at" %></th>-->
+				<% end %>
+				<th colspan="3"></th>
+			</tr>
+		</thead>	
+			<tbody>
+				<% @requests.each do |request| %>
+				<% video = VideoInfo.new("#{request.songurl}") %>
+				<% vname = video.title %>
+				<% vauthor = video.author %>
+				<% vtitle = "#{vname} - \[#{vauthor}\]" %>
+				<tr>
+					<td><%= request.id %></td>
+					<td><%= link_to vtitle, "#{request.songurl}", target: :_blank %></td>
+					<td><%= request.twitchname %></td>
+					<td><%= request.created_at %></td>
+					<% if request.songurl.include? "https://youtu.be/" %>
+						<td><%= link_to 'Play', 'player?url='+request.songurl[17..-1] %></td>
+					<% elsif request.songurl.include? "http://youtu.be/" %>
+						<td><%= link_to 'Play', 'player?url='+request.songurl[16..-1] %></td>
+					<% elsif request.songurl.include? "https://www.youtube.com/watch?v=" %>
+						<td><%= link_to 'Play', 'player?url='+request.songurl[32..-1] %></td>
+					<% elsif request.songurl.include? "http://www.youtube.com/watch?v=" %>
+						<td><%= link_to 'Play', 'player?url='+request.songurl[31..-1] %></td>
+					<% end %>
+					<td><%= link_to 'Edit', edit_request_path(@requests) %></td>
+					<td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?'  } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<% if @url != nil %>
+		<div class='row' id='player'>
+			<%= render 'player/play' %>
+		</div>
+	<% end %>	
+</div>

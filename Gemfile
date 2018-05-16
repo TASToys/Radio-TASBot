@@ -23,12 +23,14 @@ gem 'twitch-api'
 gem 'passenger'
 gem 'acts_as_archival'
 gem 'pg'
-gem 'sortable-table'
+gem 'youtube_addy'
+
 
 #bot stuff
 
 gem 'cinch'
 gem 'cinch-commands'
+gem 'cinch-cooldown'
 gem 'sequel'
 
 #jquery stuffs
