@@ -1,3 +1,7 @@
+<% Yt.configuration.api_key = configatron.yt.api %>
+<% video = Yt::Video.new id: @url %>
 <div class="yt-vid">
-	<%= YouTubeAddy.youtube_embed_url('https://youtu.be/'+@url).html_safe %>
+	<!--<#%= YouTubeAddy.youtube_embed_url('https://youtu.be/'+@url).html_safe %>-->
+	<!--<#%= video.embed_html.html_safe %>-->
+	<iframe  width="512" height="288" src='https://www.youtube.com/embed/<%= @url %>?rel=0&autoplay=1' frameborder='0' allowfullscreen></iframe>
 </div>

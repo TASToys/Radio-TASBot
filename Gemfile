@@ -24,7 +24,7 @@ gem 'passenger'
 gem 'acts_as_archival'
 gem 'pg'
 gem 'youtube_addy'
-
+gem 'yt'
 
 #bot stuff
 
