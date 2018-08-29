@@ -16,15 +16,19 @@ class Request
 	include Cinch::Plugin
 	include Cinch::Commands
 
-	command :request, {arg1: :string},
-		summary: "Request music with a youtube url.",
-		description: %{
-		use !request with a youtube url
-		}
-	
-	def request(m,arg1)
+	command :request, {
+		arg1: :string
+	}, 
+
+	summary: "Request music with a youtube url.", 
+	description: %{
+ use !request with a youtube url
+	}
+
+	def request(m, arg1)
 
 		db = Sequel.connect("postgres://#{configatron.sql.user}:#{configatron.sql.pass}@localhost:5432/radio-tasbot")
+
 		requests = db.from(:requests)
 		video = VideoInfo.new(arg1)
 		linkvid = arg1
@@ -32,12 +36,14 @@ class Request
 		linktime = Time.now.to_s
 		linkupdt = Time.now.to_s
 		userreqs = requests.where(twitchname: linkuser)
-		counts = userreqs.count 
+		counts = userreqs.count
 		if counts >= 2
 			m.reply "#{linkuser}, You've already requested two songs please wait for one to be played before trying again. View the queue at radiotasbot.com/queue"
+
 		else
-			m.reply "#{m.user.nick}, your video \"#{video.title}\" - \[#{video.author}\] has been added to the queue."
-			requests.insert(songurl: linkvid, twitchname: linkuser, created_at: linktime, updated_at: linkupdt) 
+			m.reply "#{m.user.nick}, your video \"#{video.title}\" - \[#{video.author}\] has been added to the queue. View the queue at https://radiotasbot.com/queue"
+
+			requests.insert(songurl: linkvid, twitchname: linkuser, created_at: linktime, updated_at: linkupdt)
 		end
 	end
 end
@@ -50,8 +56,12 @@ bot = Cinch::Bot.new do
 		c.plugins.plugins = [Request]
 		c.user = configatron.irc.nick
 		c.nick = configatron.irc.nick
+		#c.caps = [:'twitch.tv/tags', :'twitch.tv/commands', :'twitch.tv/membership']
 	end
 
+	on :connect do |m|
+		m.send "CAP REQ :twitch.tv/tags twitch.tv/commands twitch.tv/membership"
+	end
 end
 
 bot.start
