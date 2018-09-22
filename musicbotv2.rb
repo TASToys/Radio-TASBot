@@ -5,6 +5,9 @@ require 'pg'
 require 'video_info'
 require 'configatron'
 require 'websocket-eventmachine-client'
+require 'oj'
+require 'open-uri'
+require 'net/http'
 require_relative 'config/configatron/defaults.rb'
 
 VideoInfo.provider_api_keys = { youtube: configatron.yt.api }
@@ -12,6 +15,8 @@ VideoInfo.provider_api_keys = { youtube: configatron.yt.api }
 db = Sequel.connect("postgres://#{configatron.sql.user}:#{configatron.sql.pass}@localhost:5432/radio-tasbot")
 
 requests = db.from(:requests)
+statusfile = ("#{configatron.ice.url}/status-json.xsl")
+#statusfile = URI.parse("http://10.20.30.202:9989/status_json.xsl")
 
 EM.run do
 	ws = WebSocket::EventMachine::Client.connect(:host => 'irc-ws.chat.twitch.tv', :port => 80, :ssl => false)
@@ -65,6 +70,13 @@ EM.run do
 						puts "#{user_name} added #{video.title} to the queue"
 					end
 				end
+			elsif user_msg_arr[0] == '!playing'
+				iceurl = URI.parse("http://#{statusfile}")
+				response = Net::HTTP.get_response(iceurl)
+				puts response
+				iceopen = Oj.load(response.body.to_s)
+				ice1 = iceopen.fetch('icestats').fetch('source').fetch('yp_currently_playing')
+				ws.send "PRIVMSG #{configatron.twitch.irc} :\"#{ice1}\" is coming through the SNES right now!"
 			end
 		
 
